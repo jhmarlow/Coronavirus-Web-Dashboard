@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import plotly.graph_objs as go
-from web_app.wrangling_scripts.wrangle_data import *
+from WebDevelopmentTemplate.wrangling_scripts.wrangle_data import *
 
 # Use this file to read in your data and prepare the plotly visualizations. The path to the data files are in
 # `data/file_name.csv`
