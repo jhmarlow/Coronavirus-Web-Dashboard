@@ -5,7 +5,6 @@ backports-abc==0.5
 backports.shutil-get-terminal-size==1.0.0
 bdist-mpkg==0.5.0
 bleach==3.1.1
-bonjour-py==0.3
 certifi==2019.3.9
 chardet==3.0.4
 click==7.1.1
@@ -139,3 +138,6 @@ widgetsnbextension==3.5.1
 xattr==0.6.4
 zipp==1.2.0
 zope.interface==4.1.1
+
+
+# bonjour-py==0.3
