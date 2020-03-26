@@ -28,10 +28,17 @@ class JHCovid19TimeseriesData:
         """
         Confirmed, Deaths, Recovered
         """
+        self.url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/" \
+                   "csse_covid_19_time_series/time_series_covid19_{}_global.csv".format(type.lower())
+        try:
+            print(self.url)
+            return pd.read_csv(self.url)
+        except RuntimeError:
+            print("Failure getting: " + self.url)
 
-        self.url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/' \
-                   'csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-{}.csv'.format(type)
-        return pd.read_csv(self.url)
+
+
+
 
 
 class JHCovid19DailyReports:
@@ -59,9 +66,12 @@ class JHCovid19DailyReports:
         MM-DD-YYYY
         :return:
         """
-        self.url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/' \
-                   'csse_covid_19_data/csse_covid_19_daily_reports/{}.csv'.format(date)
-        return pd.read_csv(self.url)
+        try:
+            self.url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/' \
+                       'csse_covid_19_data/csse_covid_19_daily_reports/{}.csv'.format(date)
+            return pd.read_csv(self.url)
+        except RuntimeError:
+            print("Failure getting: " + self.url)
 
     def get_todays_report(self):
         self.url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/' \
@@ -97,5 +107,9 @@ class WHOSituationReports:
         self.url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/' \
                    'who_covid_19_situation_reports/who_covid_19_sit_rep_time_series/' \
                    'who_covid_19_sit_rep_time_series.csv'
-        return pd.read_csv(self.url)
+
+        try:
+            return pd.read_csv(self.url)
+        except RuntimeError:
+            print("Failure getting: " + self.url)
 

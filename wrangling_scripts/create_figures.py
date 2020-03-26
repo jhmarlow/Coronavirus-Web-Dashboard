@@ -147,7 +147,7 @@ def return_figures():
         text=df[['Country/Region', str(df.columns[-1])]],
         name='Confirmed',
         marker=dict(
-            size=df[df.columns[-1]].replace(np.nan, 0) / 1000,
+            size=abs(df[df.columns[-1]].replace(np.nan, 0) / 1000),
             line_color='rgb(40,40,40)',
             line_width=0.5,
             color='orange')))
@@ -159,7 +159,7 @@ def return_figures():
         text=df[['Country/Region', str(df.columns[-1])]],
         name='Recovered',
         marker=dict(
-            size=df[df.columns[-1]].replace(np.nan, 0) / 1000,
+            size=abs(df[df.columns[-1]].replace(np.nan, 0) / 1000),
             line_color='rgb(40,40,40)',
             line_width=0.5,
             color='green')))
@@ -171,7 +171,7 @@ def return_figures():
         text=df[['Country/Region', str(df.columns[-1])]],
         name='Deaths',
         marker=dict(
-            size=df[df.columns[-1]].replace(np.nan, 0) / 1000,
+            size=abs(df[df.columns[-1]].replace(np.nan, 0) / 1000),
             line_color='rgb(40,40,40)',
             line_width=0.5,
             color='crimson')))
