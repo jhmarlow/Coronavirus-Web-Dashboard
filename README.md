@@ -8,6 +8,8 @@ webapp: https://jacob-covid-dash.herokuapp.com/
 
 - Run ...
 
+![](readme_srcs/covid19-dash.gif)
+
 ## 1. Introduction
 
 This is the code deployed on heroku to create a web dash board to report the latest COVId-19 statistics in the current pandemic. It is based on a Python Flask App Pulling Data from John Hopkins CSSE and plotting using the plotly module to facilitate interactive.
