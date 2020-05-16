@@ -8,7 +8,7 @@ webapp: https://jacob-covid-dash.herokuapp.com/
 
 - Run ...
 
-![](readme_srcs/covid19-dash.gif)
+![](readme_src/covid19-dash.gif)
 
 ## 1. Introduction
 
