@@ -1,8 +1,8 @@
 from myapp import app
 import json, plotly
 from flask import render_template
-from wrangling_scripts.create_figures import return_figures
-from wrangling_scripts.wrangle_data import *
+from src.create_figures import return_figures
+from src.wrangle_data import *
 
 @app.route('/')
 @app.route('/index')
