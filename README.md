@@ -6,7 +6,7 @@ The app was then deployed using Heroku.
 
 Data dashboard: https://jacob-covid-dash.herokuapp.com/
 
-![](readme_src/covid19-dash.gif)
+![](readme/covid19-dash.gif)
 
 ## Repository Structure
 - **myapp** - code base for app deployment
