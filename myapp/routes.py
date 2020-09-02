@@ -7,10 +7,15 @@ from wrangling_scripts.wrangle_data import *
 @app.route('/')
 @app.route('/index')
 def index():
+    """Index page acting as data dashboard in flask application.
 
-    figures = return_figures()
+    Returns:
+        obj: render template used in html.
+    """
 
-    # plot ids for the html id tag
+    figures = return_figures()  # Build figures from data wrangling
+
+    # Plot ids for the html id tag
     ids = ['figure-{}'.format(i) for i, _ in enumerate(figures)]
 
     # Convert the plotly figures to JSON for javascript in html template

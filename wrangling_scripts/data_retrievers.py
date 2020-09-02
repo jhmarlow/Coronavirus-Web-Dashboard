@@ -1,33 +1,29 @@
+""" Data Retrievers
+
+A small API to retrieve JohnHopkins (JH) data on Covid-19.
+
+DataSource: https://github.com/CSSEGISandData/COVID-19
+
+Written by Jacob Marlow
+"""
 import pandas as pd
 from datetime import date
 
-# A small API to retrieve JohnHopkins (JH) data on Covid-19
-# DataSource: https://github.com/CSSEGISandData/COVID-19
-# Written by Jacob Marlow
-
 
 class JHCovid19TimeseriesData:
-    """
-    A class to retrieve time-series .csv files from John Hopkins Gitlab project
-    """""
+    """A class to retrieve time-series .csv files from John Hopkins Gitlab project."""
 
     def __init__(self):
         self.url = None
 
     @staticmethod
     def get_description():
-        """
-        Provide link to data description
-        :param self:
-        :return:
-        """
+        """Provide link to data description."""
         print('For a data description please look at:\n'
               ' https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/README.md')
 
     def get_timeseries(self, type):
-        """
-        Confirmed, Deaths, Recovered
-        """
+        """Get csv for Confirmed, Deaths, Recovered."""
         self.url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/" \
                    "csse_covid_19_time_series/time_series_covid19_{}_global.csv".format(type.lower())
         try:
@@ -37,14 +33,8 @@ class JHCovid19TimeseriesData:
             print("Failure getting: " + self.url)
 
 
-
-
-
-
 class JHCovid19DailyReports:
-    """
-    A class to retrieve daily reports
-    """
+    """A class to retrieve daily reports"""
 
     def __init__(self):
         self.url = None
@@ -86,9 +76,7 @@ class JHCovid19DailyReports:
 
 
 class WHOSituationReports:
-    """
-    A class to get the twice weekly reports from the World Health Organisation (WHO)
-    """
+    """A class to get the twice weekly reports from the World Health Organisation (WHO)."""
 
     def __init__(self):
         self.url = None

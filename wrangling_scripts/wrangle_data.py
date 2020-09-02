@@ -1,57 +1,65 @@
-# Use this file to read in your data and prepare the plotly visualizations. The path to the data files are in
-# `data/file_name.csv`
+""" Wrangle Data
+
+Use this file to read in your data and prepare the plotly visualizations. The path to the data files are in
+`data/file_name.csv`
+"""
 from .data_retrievers import *
 
-# First charts data wrangling
+
 class CaseTotals:
-    """
-    Latest total values for each type
-    """
+    """Latest total values for each type"""
     def __init__(self):
         pass
 
     @staticmethod
     def total_confirmed():
-        """
-        Get sum of latest total confirmed
+        """Get sum of latest total confirmed
+
+        Returns:
+            [type]: [description]
         """
         return JHCovid19TimeseriesData().get_timeseries('Confirmed').iloc[:, [-1]].sum()
 
     @staticmethod
     def total_recovered():
-        """
-        Get sum of latest total recovered
+        """Get sum of latest total recovered
+
+        Returns:
+            [type]: [description]
         """
         return JHCovid19TimeseriesData().get_timeseries('Recovered').iloc[:, [-1]].sum()
 
     @staticmethod
     def total_deaths():
-        """
-        Get sum of latest total deaths
+        """Get sum of latest total deaths
+
+        Returns:
+            [type]: [description]
         """
         return JHCovid19TimeseriesData().get_timeseries('Deaths').iloc[:, [-1]].sum()
 
     def totals_values(self):
+        """Format results in to list to be plotted
+
+        Returns:
+            [type]: [description]
         """
-        Format results in to list to be plotted
-        """
-        y = [self.total_confirmed().values[0], self.total_recovered().values[0], self.total_deaths().values[0]]
-        return y
+        return [self.total_confirmed().values[0], self.total_recovered().values[0], self.total_deaths().values[0]]
 
     @staticmethod
     def totals_names():
+        """Format results in to list to be plotted.
+
+        Returns:
+            [type]: [description]
         """
-        Format results in to list to be plotted
-        """
-        x = ['Confirmed', 'Recovered', 'Deaths']
-        return x
+        return ['Confirmed', 'Recovered', 'Deaths']
 
 
 # Second chart data wrangling
 class CasesByCountry:
-    """
-    Latest total count of each type by country
-    """
+    """Latest total count of each type by country"""
+
     def __init__(self):
         pass
 
@@ -142,7 +150,5 @@ class GeoPlotData:
 
 
 def return_latest_dataset_date():
-    """
-    Get the latest date in the .csv file, time-series left to right
-    """
+    """Get the latest date in the .csv file, time-series left to right."""
     return JHCovid19TimeseriesData().get_timeseries('Confirmed').columns[-1]
